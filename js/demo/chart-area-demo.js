@@ -33,8 +33,9 @@ var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-    datasets: [{
-      label: "Earnings",
+    datasets: [
+    {
+      label: "Mutasi Siswa Masuk",
       lineTension: 0.3,
       backgroundColor: "rgba(78, 115, 223, 0.05)",
       borderColor: "rgba(78, 115, 223, 1)",
@@ -47,7 +48,23 @@ var myLineChart = new Chart(ctx, {
       pointHitRadius: 10,
       pointBorderWidth: 2,
       data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
-    }],
+    },
+    {
+      label: "Mutasi Siswa Keluar",
+      lineTension: 0.3,
+      backgroundColor: "rgba(78, 115, 223, 0.05)",
+      borderColor: "rgba(78, 115, 223, 1)",
+      pointRadius: 3,
+      pointBackgroundColor: "rgba(78, 115, 223, 1)",
+      pointBorderColor: "rgba(78, 115, 223, 1)",
+      pointHoverRadius: 3,
+      pointHoverBackgroundColor: "rgba(78, 115, 223, 1)",
+      pointHoverBorderColor: "rgba(78, 115, 223, 1)",
+      pointHitRadius: 10,
+      pointBorderWidth: 2,
+      data: [500, 15000, 9000, 18000, 19000, 24000, 18000, 29000, 27000, 40000, 35000, 50000],
+    },
+  ],
   },
   options: {
     maintainAspectRatio: false,
@@ -78,7 +95,7 @@ var myLineChart = new Chart(ctx, {
           padding: 10,
           // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return ' ' + number_format(value);
           }
         },
         gridLines: {
@@ -110,7 +127,7 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ' : ' + number_format(tooltipItem.yLabel);
         }
       }
     }
